@@ -1,0 +1,70 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "name": "Jaguar",
+      "image": "../../../assets/images/jaguar.jpg",
+      "group": "Mammals"
+    },
+    {
+      "id": 2,
+      "name": "Bee",
+      "image": "../../../assets/images/bee.jpg",
+      "group": "Insects"
+    },
+    {
+      "id": 3,
+      "name": "Puffer Fish",
+      "image": "../../../assets/images/pufferfish.jpg",
+      "group": "Fishes"
+    },
+    {
+      "id": 4,
+      "name": "Frog",
+      "image": "../../../assets/images/frog.jpg",
+      "group": "Amphibians"
+    },
+    {
+      "id": 5,
+      "name": "Parrot",
+      "image": "../../../assets/images/parrot.jpg",
+      "group": "Birds"
+    },
+    {
+      "id": 6,
+      "name": "Chameleon",
+      "image": "../../../assets/images/chameleon.jpg",
+      "group": "Reptiles"
+    },
+    {
+      "id": 7,
+      "name": "Bear",
+      "image": "https://www.pixelstalk.net/wp-content/uploads/images6/Bear-HD-Wallpaper-Free-download.jpg",
+      "group": "Mammals"
+    },
+    {
+      "id": "69218101-95db-420b-98f0-5ecfe288812a",
+      "name": "Ant",
+      "image": "https://wallpapercave.com/wp/wp4054234.jpg",
+      "group": "Insects"
+    },
+    {
+      "id": "d96ed5cc-b7dc-4c79-bb1e-f3224164409d",
+      "name": "Whale",
+      "image": "https://images.unsplash.com/photo-1568430462989-44163eb1752f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80",
+      "group": "Mammals"
+    },
+    {
+      "id": "468f587f-b4a7-4007-80ec-d01bb2fa0b95",
+      "name": "Shark",
+      "image": "https://ntbrand-wp.s3.amazonaws.com/impressivenature/wp-content/uploads/2018/10/11120526/AdobeStock_103878807-e1539273926352.jpeg",
+      "group": "Fishes"
+    },
+    {
+      "id": "f1a34e8e-a53d-4dac-bcb0-3b25fa0e53cf",
+      "name": "Eagle",
+      "image": "https://c4.wallpaperflare.com/wallpaper/947/185/245/eagle-hd-1080p-high-quality-wallpaper-preview.jpg",
+      "group": "Birds"
+    }
+  ]
+}

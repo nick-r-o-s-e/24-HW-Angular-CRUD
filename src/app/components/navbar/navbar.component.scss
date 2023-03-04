@@ -1,0 +1,29 @@
+.navbar {
+  height: fit-content;
+  min-height: 80px;
+  background-color: #e91e63;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .nav-links{
+    display: flex;
+    gap: 3em;
+    width: fit-content;
+    transform: translateX(7%);
+  }
+  a {
+    padding: 0.7em 1em;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    height: min-content;
+    font-size: 1.7em;
+    color: #fff;
+    transition: all 0.2s ease;
+    &.active-link{
+        background-color: #c81953;
+    }
+    &:hover {
+      background-color: #b0164a;
+    }
+  }
+}
