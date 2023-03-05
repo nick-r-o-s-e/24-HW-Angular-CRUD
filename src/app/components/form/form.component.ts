@@ -18,7 +18,7 @@ export class FormComponent {
 
   formGroup = this.formBuilder.group({
     id: uuidv4(),
-    name: ['', Validators.required],
+    name: ['', Validators.required],//Validators.minLength(10)Validators.pattern("")
     image: ['', Validators.required],
     group: ['', Validators.required],
   });
