@@ -2,27 +2,38 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding: 100px 0;
   h1 {
     font-size: 4em;
     color: #fff;
     text-align: center;
     margin-bottom: 0.8em;
+    line-height: 120%;
   }
 }
 form {
   display: flex;
   flex-direction: column;
   gap: 2em;
-  width: 30%;
-
+  width: 85%;
+  max-width: 450px;
   .submit-btn {
     font-size: 1.9em;
     padding: 1em;
     align-self: center;
-    width: 30%;
+    width: fit-content;
   }
 }
 .x-mark {
   transform: scale(0.6);
+}
+
+@media (max-width: 750px) {
+  .form-wrapper{
+    padding: 50px 0 ;
+
+    h1 {
+      margin-bottom: 0.3em!important;
+    }
+  }
 }

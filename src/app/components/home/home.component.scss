@@ -6,16 +6,24 @@
 
 .home-hero {
   display: flex;
+  justify-content: start;
   width: 90%;
-  margin-top: 130px;
+  margin-top: 85px;
   position: relative;
   max-width: 2000px;
+  * {
+    text-align: center;
+    line-height: 100%;
+  }
   .image-div {
     width: 60%;
     position: relative;
     border-radius: 130px;
     overflow: hidden;
-
+    img {
+      transform: scale(0.99);
+      border-bottom-left-radius: 130px;
+    }
     .shadow-div {
       border-radius: 130px;
       position: absolute;
@@ -23,7 +31,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      box-shadow: inset 40px -40px 30px -7px #303030;
+      box-shadow: inset 40px -40px 25px -7px #303030;
       z-index: 99;
     }
   }
@@ -55,16 +63,58 @@
     }
     .home-buttons {
       display: flex;
-      gap: 2em;
-      button {
-        font-size: 2em;
-        padding: 1.1em 1em;
-        border-radius: 0.375rem;
-        a {
-          text-decoration: none;
-          color: #fff;
+      gap: 8em;
+      a {
+        display: block;
+
+        text-decoration: none;
+        color: #fff;
+
+        button {
+          transform: scale(1.7);
+
+          border-radius: 0.375rem;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .title-div {
+    gap: 7em !important;
+  }
+
+  .title {
+    h1 {
+      font-size: 5em !important ;
+    }
+    h2 {
+      font-size: 2.6em !important ;
+    }
+  }
+}
+@media (max-width: 1100px) {
+  .home-hero {
+    margin-top: 60px;
+    justify-content: center;
+  }
+  .image-div {
+    display: none !important;
+  }
+  .title-div {
+    position: static !important;
+    left: 0;
+    width: 90%;
+  }
+
+  .title {
+    gap: 2em !important;
+  }
+  .home-buttons {
+    gap: 5em !important;
+    button {
+      transform: scale(1.5) !important;
     }
   }
 }

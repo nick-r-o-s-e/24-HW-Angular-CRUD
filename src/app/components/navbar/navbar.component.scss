@@ -1,15 +1,16 @@
 .navbar {
   height: fit-content;
-  min-height: 80px;
   background-color: #e91e63;
   display: flex;
   justify-content: center;
   align-items: center;
-  .nav-links{
-    display: flex;
-    gap: 3em;
+  padding: 1em 0;
+  width: 100%;
+  .nav-links {
     width: fit-content;
-    transform: translateX(7%);
+    gap: 3em;
+    display: flex;
+    justify-content: space-evenly;
   }
   a {
     padding: 0.7em 1em;
@@ -19,11 +20,21 @@
     font-size: 1.7em;
     color: #fff;
     transition: all 0.2s ease;
-    &.active-link{
-        background-color: #c81953;
+    &.active-link {
+      background-color: #c81953;
     }
     &:hover {
       background-color: #b0164a;
     }
+  }
+}
+
+@media (max-width: 750px) {
+  .nav-links {
+    width: 90% !important;
+    justify-content: space-evenly !important;
+  }
+  a {
+    font-size: 1.2em !important;
   }
 }

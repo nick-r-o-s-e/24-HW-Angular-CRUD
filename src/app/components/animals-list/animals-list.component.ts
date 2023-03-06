@@ -3,6 +3,8 @@ import { MatChipListboxChange } from '@angular/material/chips';
 import { AnimalsService } from 'src/app/services/animals.service';
 import { Animal } from 'src/assets/types/Animal';
 
+
+
 @Component({
   selector: 'app-animals-list',
   templateUrl: './animals-list.component.html',
@@ -13,9 +15,11 @@ export class AnimalsListComponent {
 
   data: Animal[] = [];
 
+  //FOR STORING FILTERED DATA
   animals: Animal[] = [];
 
   filterOption = 'All';
+
   ngOnInit() {
     this._apiservice.getAllAnimals().subscribe((res) => {
       this.data = res;

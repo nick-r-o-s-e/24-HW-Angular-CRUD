@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { AnimalsListComponent } from './components/animals-list/animals-list.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'animals', component: AnimalsListComponent },
       { path: '**', redirectTo: 'home', pathMatch: 'full' },
     ]),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent],

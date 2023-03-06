@@ -6,27 +6,21 @@
   justify-content: center;
   padding: 60px 0;
 
-  .filter-checkboxes {
+  mat-chip-listbox {
     margin-bottom: 60px;
-    .mdc-evolution-chip-set__chips {
-      gap: 1em !important;
-    }
-    mat-chip-option {
-      padding: 1em 0.3em;
-      font-size: 1.65em;
-      margin: 0 0.4em;
-    }
+    max-width: 90%;
+    width: max-content;
+    padding: 0 1em;
   }
   .animals-list {
-    width: 78%;
+    max-width: 1850px;
     display: grid;
     gap: 3em;
     justify-content: center;
-    grid-template-columns: repeat(4, 1fr);
   }
 
   .card {
-    border-radius: 0.39rem;
+    border-radius: 0.375rem;
     overflow: hidden;
     position: relative;
   }
@@ -43,6 +37,8 @@
   }
 
   .img-placeholder {
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -51,6 +47,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transform: scale(0.997);
   }
 
   mat-card-content {
@@ -75,7 +72,43 @@
     cursor: pointer;
     i {
       font-size: 2em;
-      color: rgba(195, 0, 0, 0.737);
+      color: rgba(224, 0, 0, 0.737);
     }
+  }
+}
+@media screen and (max-width: 750px) {
+  mat-chip-listbox {
+    margin-bottom: 30px !important;
+  }
+
+  mat-chip-option {
+    transform: scale(1.2);
+  }
+  .animals-list {
+    width: 90%;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  mat-chip-option {
+    transform: scale(1.4);
+  }
+  .animals-list {
+    width: 90%;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  .animals-list {
+    width: 78%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1770px) {
+  .animals-list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
