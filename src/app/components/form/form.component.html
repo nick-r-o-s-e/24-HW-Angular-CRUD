@@ -1,11 +1,12 @@
 <div class="main-container">
   <div class="form-wrapper">
     <form
+      class="form"
       (keyup.enter)="submitForm()"
       [formGroup]="formGroup"
       (submit)="submitForm()"
     >
-      <h1>New Animal</h1>
+      <h1 class="form-title">New Animal</h1>
       <mat-form-field class="example-form-field">
         <mat-label>Name</mat-label>
         <input
@@ -14,12 +15,18 @@
           formControlName="name"
           [(ngModel)]="formGroup.value.name"
         />
+        <mat-error *ngIf="formGroup.get('name')?.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="formGroup.get('name')?.hasError('maxlength')">
+          Maximum 43 characters
+        </mat-error>
         <button
           *ngIf="formGroup.value.name"
           matSuffix
           mat-icon-button
           aria-label="Clear"
-          (click)="clearInput('name', $event)"
+          (click)="clearInput('name')"
         >
           <img
             class="x-mark"
@@ -41,7 +48,7 @@
           matSuffix
           mat-icon-button
           aria-label="Clear"
-          (click)="clearInput('image', $event)"
+          (click)="clearInput('image')"
         >
           <img
             class="x-mark"
@@ -53,20 +60,22 @@
       <mat-form-field appearance="fill">
         <mat-label>Select a group</mat-label>
         <mat-select disableRipple formControlName="group">
-          <mat-option value="Mammals">Mammals</mat-option>
-          <mat-option value="Reptiles">Reptiles</mat-option>
-          <mat-option value="Birds">Birds</mat-option>
-          <mat-option value="Amphibians">Amphibians</mat-option>
-          <mat-option value="Fishes">Fishes</mat-option>
-          <mat-option value="Insects">Insects</mat-option>
+          <mat-option
+            *ngFor="let group of groups.slice(1)"
+            value="{{ group }}"
+            >{{ group }}</mat-option
+          >
         </mat-select>
+        <mat-error *ngIf="formGroup.get('group')?.hasError('required')">
+          Group is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
       <button
         class="submit-btn"
         mat-raised-button
         color="primary"
         type="submit"
-        [disabled]="!formGroup.valid"
+        [disabled]="!formGroup.valid || buttonDisabled"
       >
         Submit
       </button>

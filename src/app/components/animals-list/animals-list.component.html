@@ -1,59 +1,60 @@
 <div class="main-container">
-  <mat-chip-listbox class="filter-checkboxes" (change)="selectFilter($event)">
+  <mat-chip-listbox
+    *ngIf="allAnimals$ | async"
+    class="chips"
+    (change)="selectFilter($event)"
+  >
     <mat-chip-option
-      selectable="{{ filterOption == 'All' ? false : true }}"
-      color="warn"
-      selected
-      >All</mat-chip-option
-    >
-    <mat-chip-option selectable="{{ filterOption == 'Mammals' ? false : true }}"
-      >Mammals</mat-chip-option
-    >
-    <mat-chip-option selectable="{{ filterOption == 'Fishes' ? false : true }}"
-      >Fishes</mat-chip-option
-    >
-    <mat-chip-option selectable="{{ filterOption == 'Birds' ? false : true }}"
-      >Birds</mat-chip-option
-    >
-    <mat-chip-option
-      selectable="{{ filterOption == 'Amphibians' ? false : true }}"
-      >Amphibians</mat-chip-option
-    >
-    <mat-chip-option
-      selectable="{{ filterOption == 'Reptiles' ? false : true }}"
-      >Reptiles</mat-chip-option
-    >
-    <mat-chip-option selectable="{{ filterOption == 'Insects' ? false : true }}"
-      >Insects</mat-chip-option
+      class="chip"
+      *ngFor="let group of groups"
+      selectable="{{ filterOption == group ? false : true }}"
+      color="{{ group == 'All' ? 'warn' : '' }}"
+      selected="{{ filterOption == group ? true : false }}"
+      >{{ group }}</mat-chip-option
     >
   </mat-chip-listbox>
-  <div class="animals-list">
-    <mat-card class="card" *ngFor="let animal of animals">
-      <div
-        class="img-placeholder"
-        style="
-          background-image: url('../../../assets/images/placeholders/image-placeholder.jpg');
-        "
-      ></div>
-
-      <div
-        class="image-div"
-        style="background-image: url('{{ animal.image }}')"
-      ></div>
-
-      <mat-card-content>
-        <h1>{{ animal.name }}</h1>
-        <h3>
-          {{
-            animal.group == "Fishes"
-              ? animal.group.slice(0, -2)
-              : animal.group.slice(0, -1)
-          }}
-        </h3>
-      </mat-card-content>
-      <button class="delete-btn" (click)="deleteAnimal(animal.id!)">
-        <i class="fa-solid fa-trash-can"></i>
-      </button>
-    </mat-card>
+  <div *ngIf="loading$ | async; else list">
+    <mat-spinner class="loading-spinner"></mat-spinner>
   </div>
+
+  <ng-template #list>
+    <div class="animals-list">
+      <mat-card class="card" *ngFor="let animal of allAnimals$ | async">
+        <div
+          class="img-placeholder"
+          style="
+            background-image: url('../../../assets/images/placeholders/image-placeholder.jpg');
+          "
+        ></div>
+
+        <div
+          class="image-div"
+          style="background-image: url('{{ animal.image }}')"
+        ></div>
+
+        <mat-card-content class="card-content">
+          <h1 class="animal-name">{{ animal.name }}</h1>
+          <h3 class="group-name">
+            {{
+              animal.group == "Fishes"
+                ? animal.group.slice(0, -2)
+                : animal.group.slice(0, -1)
+            }}
+          </h3>
+        </mat-card-content>
+        <button class="delete-btn" (click)="deleteAnimal(animal)">
+          <i class="fa-solid fa-trash-can trash-can-icon"></i>
+        </button>
+      </mat-card>
+      <a
+        *ngIf="(allAnimals$ | async)?.length == 0"
+        class="adding-card-link"
+        routerLink="/new-animal"
+      >
+        <div class="adding-card card">
+          <i class="fa-solid fa-circle-plus plus-icon"></i>
+        </div>
+      </a>
+    </div>
+  </ng-template>
 </div>

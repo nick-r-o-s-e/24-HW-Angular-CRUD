@@ -1,6 +1,10 @@
-# Angular-crud
+# Angular-NgRx-crud
 
-Simple CRUD app working on json-server
+- Simple CRUD app. (without editing option). 
+- [JSON-server](https://www.npmjs.com/package/json-server) is using as DB implementation.  
+- [NgRx](https://ngrx.io/) is using for state management.  
+- For project structure simplicity components aren`t pure.  
+- Responsive design.  
 
 ## Usage
 
