@@ -13,12 +13,17 @@
       >{{ group }}</mat-chip-option
     >
   </mat-chip-listbox>
+
+  <div *ngIf="!(loading$ | async) && (error$ | async)">
+    <h1 class="failed-to-load">Failed to load animals</h1>
+  </div>
+
   <div *ngIf="loading$ | async; else list">
     <mat-spinner class="loading-spinner"></mat-spinner>
   </div>
 
   <ng-template #list>
-    <div class="animals-list">
+    <div *ngIf="!(error$ | async)" class="animals-list">
       <mat-card class="card" *ngFor="let animal of allAnimals$ | async">
         <div
           class="img-placeholder"
@@ -47,7 +52,7 @@
         </button>
       </mat-card>
       <a
-        *ngIf="(allAnimals$ | async)?.length == 0"
+        *ngIf="(allAnimals$ | async)?.length == 0 && !(loading$ | async)"
         class="adding-card-link"
         routerLink="/new-animal"
       >

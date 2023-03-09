@@ -18,6 +18,7 @@ import {
 //Selectors
 import {
   allAnimalsSelector,
+  errorSelector,
   loadingSelector,
 } from 'src/app/state/animalsState/animals.selectors';
 
@@ -31,6 +32,7 @@ export class AnimalsListComponent {
   loading$: Observable<boolean>;
   filterOption: string = '';
   groups: string[] = [];
+  error$: Observable<string | null>;
 
   constructor(
     private store: Store<AppState>,
@@ -40,6 +42,7 @@ export class AnimalsListComponent {
     this.allAnimals$ = this.store.pipe(select(allAnimalsSelector));
     this.loading$ = this.store.pipe(select(loadingSelector));
     this.groups = groups;
+    this.error$ = this.store.pipe(select(errorSelector));
   }
 
   ngOnInit() {
